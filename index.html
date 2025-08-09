@@ -12,22 +12,22 @@ Click me to display Date and Time.</button>
 
 </body>
 <script>
-const apiUrl = 'https://worldtimeapi.org/api/ip';
-const outputElement = document.getElementById('output');
+const data = null;
 
-fetch(apiUrl)
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.json();
-  })
-  .then(data => {
-    // Display data in an HTML element
-    outputElement.textContent = JSON.stringify(data, null, 2);
-  })
-  .catch(error => {
-    console.error('Error:', error);
-  });
+const xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener('readystatechange', function () {
+	if (this.readyState === this.DONE) {
+		console.log(this.responseText);
+	}
+});
+
+xhr.open('GET', 'https://wordsapiv1.p.rapidapi.com/words/lovely/synonyms');
+xhr.setRequestHeader('x-rapidapi-key', '8b86ea33a9msh9a0f44875a081ffp1e93dfjsn17a4a8862c3a');
+xhr.setRequestHeader('x-rapidapi-host', 'wordsapiv1.p.rapidapi.com');
+
+xhr.send(data);
+
 </script>
 </html> 
