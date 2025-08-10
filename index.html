@@ -29,6 +29,7 @@ xhr.addEventListener('readystatechange', function () {
 
 
 xhr.open('GET','https://icanhazdadjoke.com/');
+xhr.setRequestHeader('Accept','application/json');
 xhr.send(data);
 
 </script>
